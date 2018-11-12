@@ -9,7 +9,7 @@ public class MainClass {
 	public static void main (String [] args) throws NumberFormatException, IOException {
 		
 		//Welcome text will be shown to the user. After the welcome text, showOpinions method shows available opinons for the user.
-		System.out.println("Welcome! \n\nThis program translates text to morse code and vice versa.\n");
+		System.out.println("WELCOME! \n\nThis program translates text to morse code and vice versa.\n");
 		showOpinions();
 		
 		int number_choice = 3;
@@ -28,12 +28,12 @@ public class MainClass {
 				switch (number_choice) {
 				
 				case 1:
-					translator.textToMorseCode();
+					translator.englishToMorseCode();
 					showOpinions();
 				break;
 			
 				case 2:
-					translator.morseCodeToText();
+					translator.morseCodeToEnglish();
 					showOpinions();
 				break;
 				
@@ -55,7 +55,7 @@ public class MainClass {
 			
 		}
 		
-			//This loop will be run unless the user selects number 3.
+			//This loop will be run unless the user selects number 0.
 		} while (number_choice != 0);
 	}
 	
