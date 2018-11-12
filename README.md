@@ -3,7 +3,7 @@ Translates text to morse code and vice versa.
 
 ##**Instructions:**
 
-**-Supports only .txt files**
+**Supports only .txt files**
 
 **When you open the file for translating (English or morse), please type the full filepath with ending .txt.**
 
