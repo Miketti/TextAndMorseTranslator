@@ -9,7 +9,7 @@ Translates text to morse code and vice versa.
 
 **When translating from morse to English, please note the following things in the input file text content:**
  
-  -no space between dots and lines when they belong to the same morse character.
+  -no space between dots and/or lines when they belong to the same morse character.
   
   -(at least) one space between different morse characters.
  
