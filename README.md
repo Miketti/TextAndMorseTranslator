@@ -1,7 +1,7 @@
 # TextAndMorseTranslator
 Translates text to morse code and vice versa.
 
-##**Instructions:**
+## **Instructions:**
 
 **Supports only .txt files**
 
