@@ -13,6 +13,6 @@ Translates text to morse code and vice versa.
   
   -(at least) one space between different morse characters.
  
-**When saving the file, type only the name. No extension are needed to type. The file will automatically be saved to the .txt extension.**
+**When saving the file, type only the name. No extension is needed to type. The file will automatically be saved to the .txt extension.**
 
 **If you type name of the existing file, the file will be overwritten.**
