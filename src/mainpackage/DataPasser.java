@@ -7,7 +7,7 @@ import java.io.FileReader;
 public class DataPasser {
 	private String inputfilepath;
 	private FileReader filereader;
-	private String traslatedString;
+	private String translatedString;
 	private String outputfilename;
 	
 public DataPasser() {
@@ -30,12 +30,12 @@ public void setFilereader(FileReader filereader) {
 	this.filereader = filereader;
 	}
 
-public String getTraslatedString() {
-	return traslatedString;
+public String getTranslatedString() {
+	return translatedString;
 }
 
-public void setTraslatedString(String traslatedString) {
-	this.traslatedString = traslatedString;
+public void setTranslatedString(String traslatedString) {
+	this.translatedString = traslatedString;
 }
 
 public String getOutputfilename() {

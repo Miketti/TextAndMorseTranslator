@@ -6,10 +6,10 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Scanner;
 
 //This class does actual translation work
 
@@ -73,8 +73,8 @@ public class Translator {
 				+ "Confirm your choice by pressing ENTER.\nIMPORTANT! The input file must be in .txt extension.\n"
 				+ "Navigate here the file you want to translate:");
 		
-		Scanner scanner = new Scanner(System.in);
-		String userInput = scanner.nextLine();
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String userInput = br.readLine();
 		if(userInput.equals("0")) { //Return to main menu
 			System.out.println("Going back to the main menu...\n");
 			return;	
@@ -91,7 +91,7 @@ public class Translator {
 				String englishString = bufferedreader.readLine().toLowerCase(); //Because our keys are lowercase in the HashMap, we also need lowercase the String from the file.
 				bufferedreader.close();
 			    String morseString = "";
-			    //The translating operation itself. Works, but not properly. Doesn't recognize for example spaces. It also doesn't react inputs, which don't match to the English alphabet at all.
+			    //The translating operation itself.
 			    for (int i = 0; i < englishString.length(); i++) {
 			    	String character = alphabetHashMap.get(englishString.charAt(i));
 			    	if (character!= null) {
@@ -101,8 +101,8 @@ public class Translator {
 			    		morseString = morseString + " ";
 			    	}
 			    }
-			    System.out.println(morseString);
-			    datapasser.setTraslatedString(morseString);
+			    //System.out.println(morseString);
+			    datapasser.setTranslatedString(morseString);
 			    System.out.println("");
 			    System.out.println("File contents are now translated to morse code.\n"
 			    		+ "Do you want to save the file? Choose Y if yes or N for no and press ENTER:");
@@ -129,8 +129,8 @@ public class Translator {
 				+ "IMPORTANT! The input file must be in .txt extension.\n"
 				+ "Navigate here the file you want to translate:");
 		
-		Scanner scanner = new Scanner(System.in);
-		String userInput = scanner.nextLine();
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String userInput = br.readLine();
 		if(userInput.equals("0")) { //Return to main menu
 			System.out.println("Going back to the main menu...\n");
 			return;	
@@ -151,12 +151,17 @@ public class Translator {
 			    place morse characters in an array and then compare them to the HashMap keys one by one.*/
 			    String [] morseCharacters = morseString.split(" ");
 			    for (int i = 0; i < morseCharacters.length; i++) {
-			    	char englishLetter = reversedAlphabetHashMap.get(morseCharacters[i]);
-			    	englishString = englishString + englishLetter;
+			    	if (reversedAlphabetHashMap.get(morseCharacters[i]) != null) {
+			    		char englishLetter = reversedAlphabetHashMap.get(morseCharacters[i]);
+			    		englishString = englishString + englishLetter;
+			    	}
+			    	else {
+			    		englishString = englishString + " ";
+			    	}
 			    }
 			    englishString = englishString.toUpperCase(); //This turns the translated string to uppercase.
-			    System.out.println(englishString);
-			    datapasser.setTraslatedString(englishString);
+			    //System.out.println(englishString);
+			    datapasser.setTranslatedString(englishString);
 			    System.out.println("");
 			    System.out.println("File contents are now translated to English.\n"
 			    		+ "Do you want to save the file? Choose Y if yes or N for no and press ENTER:");
@@ -206,8 +211,8 @@ public class Translator {
 		String userInput;
 		boolean userInputValid = false;
 		do {
-			Scanner scanner = new Scanner(System.in);
-			userInput = scanner.nextLine();
+			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+			userInput = br.readLine();
 			if (userInput.matches("y|Y")) {
 				writeAndSaveFile(datapasser);
 				return;
@@ -230,11 +235,11 @@ public class Translator {
 			System.out.println("The output file will be saved in .txt extension.\n"
 					+ "IMPORTANT! If you give a name of the existing file, the file will be overwritten.\n"
 					+ "Give a name to the output file:");
-			Scanner scanner = new Scanner(System.in);
-			String morseCodeOutputFile = scanner.nextLine();
+			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+			String morseCodeOutputFile = br.readLine();
 			morseCodeOutputFile = morseCodeOutputFile + ".txt";
 			BufferedWriter writer = new BufferedWriter(new FileWriter(morseCodeOutputFile));
-			writer.write(mDataPasser.getTraslatedString());
+			writer.write(mDataPasser.getTranslatedString());
 			writer.close();
 			System.out.println("The file is saved. Going back to the main menu...\n");	
 		} catch (FileNotFoundException e) {
@@ -247,7 +252,7 @@ public class Translator {
 	public void resetDataPasser() {
 		datapasser.setInputfilepath(null);
 		datapasser.setFilereader(null);
-		datapasser.setTraslatedString(null);
+		datapasser.setTranslatedString(null);
 		datapasser.setOutputfilename(null);
 	}
 }
