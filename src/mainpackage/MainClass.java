@@ -62,7 +62,7 @@ public class MainClass {
 	//These opinions will be shown for the user. The user will select one of those methods using numbers in keyboard.
 	public static void showOpinions() {
 		System.out.println("THIS IS THE MAIN MENU OF THE PROGRAM");
-		System.out.println("Choose corresponding number on your keyboard and press ENTER: \n");
+		System.out.println("Select the corresponding number from the keyboard and press ENTER: \n");
 		System.out.println("1: Text to morse code");
 		System.out.println("2: Morse code to text");
 		System.out.println("0: Exit program");

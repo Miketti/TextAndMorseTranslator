@@ -5,10 +5,10 @@ import java.io.FileReader;
 //This class is used to pass data between methods. Stores filepaths, strings etc.
 
 public class DataPasser {
-	String inputfilepath;
-	FileReader filereader;
-	String traslatedString;
-	String outputfilename;
+	private String inputfilepath;
+	private FileReader filereader;
+	private String traslatedString;
+	private String outputfilename;
 	
 public DataPasser() {
 	
